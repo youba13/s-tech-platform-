@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut S Tech - Tlemcen | Formation Tech, Langues, Allemagne & Enfants</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #FF6B00;
+            --black: #1a1a1a;
+            --dark-gray: #2d2d2d;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --blue: #0066cc;
+            --green: #00cc66;
+            --yellow: #ffcc00;
+            --purple: #9933cc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 20px rgba(255, 107, 0, 0.3);
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            padding: 0.5rem 2rem;
+            box-shadow: 0 4px 30px rgba(255, 107, 0, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--orange);
+            text-shadow: 0 0 20px rgba(255, 107, 0, 0.5);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--orange);
+            transition: all 0.3s;
+            transform: translateX(-50%);
+        }
+
+        .nav-links a:hover::after {
+            width: 80%;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem 2rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+        }
+
+        .hero-bg::before,
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .hero-bg::before {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 107, 0, 0.3) 0%, transparent 70%);
+            top: 20%;
+            left: 10%;
+        }
+
+        .hero-bg::after {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 102, 204, 0.2) 0%, transparent 70%);
+            bottom: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(255, 107, 0, 0.3);
+            border: 3px solid rgba(255, 107, 0, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--orange) 0%, var(--white) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease-out;
+            text-align: left;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: var(--light-gray);
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+            text-align: left;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
+            border-color: var(--orange);
+            background: rgba(255, 107, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            color: var(--orange);
+            font-weight: bold;
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--light-gray);
+            margin-top: 0.5rem;
+        }
+
+        /* Department Showcase */
+        .departments {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--orange);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            margin-bottom: 4rem;
+        }
+
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .dept-card {
+            background: var(--dark-gray);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .dept-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 107, 0, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .dept-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--orange);
+            box-shadow: 0 20px 60px rgba(255, 107, 0, 0.4);
+        }
+
+        .dept-card:hover::before {
+            opacity: 1;
+        }
+
+        .dept-icon {
+            font-size: 4rem;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(255, 107, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dept-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            transition: all 0.5s;
+        }
+
+        .dept-card:hover .dept-icon {
+            transform: scale(1.05);
+        }
+
+        .dept-card:hover .dept-icon::before {
+            opacity: 0.25;
+            transform: scale(1.1);
+        }
+
+        .dept-icon-text {
+            position: relative;
+            z-index: 1;
+            font-size: 5rem;
+            filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.5));
+        }
+
+        /* Department-specific backgrounds */
+        .dept-card.pqp .dept-icon::before {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="%23FF6B00" opacity="0.1" width="200" height="200"/><text x="20" y="40" font-family="monospace" font-size="12" fill="%23FF6B00" opacity="0.3">function code(){</text><text x="30" y="60" font-family="monospace" font-size="12" fill="%23FF6B00" opacity="0.3">return AI;</text><text x="20" y="80" font-family="monospace" font-size="12" fill="%23FF6B00" opacity="0.3">}</text><circle cx="150" cy="150" r="30" fill="none" stroke="%23FF6B00" stroke-width="2" opacity="0.3"/><path d="M130 130 L170 170" stroke="%23FF6B00" stroke-width="2" opacity="0.3"/></svg>');
+        }
+
+        .dept-card.ausbildung .dept-icon::before {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="%230066cc" opacity="0.1" width="200" height="200"/><rect x="30" y="40" width="140" height="30" fill="%23000000" opacity="0.3"/><rect x="30" y="70" width="140" height="30" fill="%23DD0000" opacity="0.3"/><rect x="30" y="100" width="140" height="30" fill="%23FFCC00" opacity="0.3"/><path d="M50 150 Q100 130 150 150" stroke="%230066cc" stroke-width="3" fill="none" opacity="0.3"/></svg>');
+        }
+
+        .dept-card.languages .dept-icon::before {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="%2300cc66" opacity="0.1" width="200" height="200"/><circle cx="100" cy="100" r="60" fill="none" stroke="%2300cc66" stroke-width="2" opacity="0.3"/><text x="80" y="70" font-size="24" fill="%2300cc66" opacity="0.4">A</text><text x="110" y="90" font-size="24" fill="%2300cc66" opacity="0.4">你</text><text x="70" y="110" font-size="24" fill="%2300cc66" opacity="0.4">Ä</text><text x="110" y="130" font-size="24" fill="%2300cc66" opacity="0.4">ع</text></svg>');
+        }
+
+        .dept-card.kids .dept-icon::before {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="%23ffcc00" opacity="0.1" width="200" height="200"/><circle cx="60" cy="60" r="15" fill="%23ffcc00" opacity="0.3"/><circle cx="140" cy="60" r="15" fill="%23ffcc00" opacity="0.3"/><circle cx="100" cy="140" r="20" fill="%23ffcc00" opacity="0.3"/><path d="M40 100 L70 100 L70 130 L40 130 Z" fill="%23ffcc00" opacity="0.3"/><path d="M130 100 L160 100 L160 130 L130 130 Z" fill="%23ffcc00" opacity="0.3"/><rect x="80" y="160" width="40" height="30" fill="%23ffcc00" opacity="0.3"/></svg>');
+        }
+
+        .dept-card.corporate .dept-icon::before {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect fill="%239933cc" opacity="0.1" width="200" height="200"/><rect x="60" y="40" width="80" height="120" fill="none" stroke="%239933cc" stroke-width="2" opacity="0.3"/><line x1="80" y1="60" x2="120" y2="60" stroke="%239933cc" stroke-width="2" opacity="0.3"/><line x1="80" y1="80" x2="120" y2="80" stroke="%239933cc" stroke-width="2" opacity="0.3"/><line x1="80" y1="100" x2="120" y2="100" stroke="%239933cc" stroke-width="2" opacity="0.3"/><path d="M30 170 L170 170 L170 190 L30 190 Z" fill="%239933cc" opacity="0.3"/></svg>');
+        }
+
+        .dept-content {
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dept-title {
+            font-size: 1.8rem;
+            color: var(--orange);
+            margin-bottom: 1rem;
+        }
+
+        .dept-desc {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .dept-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .dept-features li {
+            padding: 0.5rem 0;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+
+        .dept-features li:hover {
+            transform: translateX(10px);
+            color: var(--orange);
+        }
+
+        .dept-features li::before {
+            content: '✓';
+            color: var(--orange);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--orange);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--white);
+            transition: all 0.5s;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn:hover {
+            color: var(--orange);
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 107, 0, 0.5);
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Department Details Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 3rem;
+            background: var(--dark-gray);
+            border-radius: 20px;
+            position: relative;
+            animation: slideUp 0.5s;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 2rem;
+            color: var(--white);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 107, 0, 0.2);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            background: var(--orange);
+            transform: rotate(90deg);
+        }
+
+        .modal-header {
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 3rem;
+            color: var(--orange);
+            margin-bottom: 1rem;
+        }
+
+        .modal-subtitle {
+            font-size: 1.5rem;
+            color: var(--light-gray);
+        }
+
+        .timeline {
+            margin: 3rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            border-left: 4px solid var(--orange);
+            transition: all 0.3s;
+            opacity: 0;
+            animation: slideInRight 0.5s forwards;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .timeline-item:hover {
+            background: rgba(255, 107, 0, 0.1);
+            transform: translateX(10px);
+        }
+
+        .timeline-number {
+            font-size: 2rem;
+            color: var(--orange);
+            font-weight: bold;
+            min-width: 50px;
+        }
+
+        .timeline-content h4 {
+            color: var(--orange);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing {
+            background: rgba(255, 107, 0, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+        }
+
+        .price-tag {
+            font-size: 3rem;
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        /* Registration Form */
+        .registration-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--black) 100%);
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--orange);
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 107, 0, 0.3);
+            border-radius: 10px;
+            color: var(--white);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 20px rgba(255, 107, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: rgba(0, 204, 102, 0.2);
+            border: 1px solid var(--green);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            animation: fadeIn 0.5s;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 107, 0, 0.3);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: var(--orange);
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--light-gray);
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--orange);
+            transform: translateX(5px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 107, 0, 0.2);
+            color: var(--light-gray);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--orange);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .mobile-menu-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(26, 26, 26, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+            animation: fadeIn 0.3s;
+        }
+
+        .mobile-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 2rem;
+            transition: all 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--orange);
+            transform: scale(1.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero h2 { font-size: 1.3rem; }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .section-title { font-size: 2rem; }
+            .modal-content { padding: 2rem; margin: 2rem 1rem; }
+            .modal-title { font-size: 2rem; }
+            .dept-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .timeline-item { flex-direction: column; gap: 1rem; }
+            .hero-container { 
+                grid-template-columns: 1fr; 
+                gap: 2rem;
+            }
+            .hero-image {
+                order: -1;
+            }
+            .hero-image img {
+                max-width: 100%;
+            }
+            .hero h1,
+            .hero h2 {
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--orange), var(--yellow));
+            z-index: 1001;
+            transition: width 0.1s;
+        }
+
+        /* Department Color Variants */
+        .dept-card.pqp:hover { box-shadow: 0 20px 60px rgba(255, 107, 0, 0.4); }
+        .dept-card.ausbildung:hover { box-shadow: 0 20px 60px rgba(0, 102, 204, 0.4); }
+        .dept-card.languages:hover { box-shadow: 0 20px 60px rgba(0, 204, 102, 0.4); }
+        .dept-card.kids:hover { box-shadow: 0 20px 60px rgba(255, 204, 0, 0.4); }
+        .dept-card.corporate:hover { box-shadow: 0 20px 60px rgba(153, 51, 204, 0.4); }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav id="mainNav">
+        <div class="nav-container">
+            <div class="logo" onclick="scrollToSection('home')">Institut S Tech</div>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="scrollToSection('home')">Accueil</a></li>
+                <li><a href="#departments" onclick="scrollToSection('departments')">Départements</a></li>
+                <li><a href="#registration" onclick="scrollToSection('registration')">Inscription</a></li>
+                <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#home" onclick="scrollToSection('home'); toggleMobileMenu()">Accueil</a>
+        <a href="#departments" onclick="scrollToSection('departments'); toggleMobileMenu()">Départements</a>
+        <a href="#registration" onclick="scrollToSection('registration'); toggleMobileMenu()">Inscription</a>
+        <a href="#contact" onclick="scrollToSection('contact'); toggleMobileMenu()">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="floating">Votre Avenir Commence Ici à Tlemcen</h1>
+                <h2>Formation Technologie • Langues • Allemagne • Enfants</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Étudiants Formés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">90%</div>
+                        <div class="stat-label">Taux de Réussite</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Entreprises Partenaires</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop" alt="Professionnelle avec ordinateur portable" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section id="departments" class="departments">
+        <h2 class="section-title">Nos Départements</h2>
+        <p class="section-subtitle">Choisissez votre parcours vers le succès</p>
+
+        <div class="dept-grid">
+            <!-- PQP Tech Bootcamp -->
+            <div class="dept-card pqp" onclick="openModal('pqp')">
+                <div class="dept-icon" style="background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 107, 0, 0.05));">
+                    <div class="dept-icon-text">💻</div>
+                </div>
+                <div class="dept-content">
+                    <h3 class="dept-title">PQP Tech Bootcamp</h3>
+                    <p class="dept-desc">Devenez Expert Tech en 3 Mois</p>
+                    <ul class="dept-features">
+                        <li>Intelligence Artificielle & ML</li>
+                        <li>Cybersécurité Avancée</li>
+                        <li>Développement Web Full-Stack</li>
+                        <li>Robotique & IoT</li>
+                    </ul>
+                    <button class="btn"><span>Explorer →</span></button>
+                </div>
+            </div>
+
+            <!-- Ausbildung Germany -->
+            <div class="dept-card ausbildung" onclick="openModal('ausbildung')">
+                <div class="dept-icon" style="background: linear-gradient(135deg, rgba(0, 102, 204, 0.2), rgba(0, 102, 204, 0.05));">
+                    <div class="dept-icon-text">🇩🇪</div>
+                </div>
+                <div class="dept-content">
+                    <h3 class="dept-title">Ausbildung Allemagne</h3>
+                    <p class="dept-desc">Étudiez et Travaillez en Allemagne</p>
+                    <ul class="dept-features">
+                        <li>Salaire 800-1200€/mois</li>
+                        <li>Visa Garanti à 95%</li>
+                        <li>Logement Assisté</li>
+                        <li>Remboursement 90% si échec</li>
+                    </ul>
+                    <button class="btn"><span>Découvrir →</span></button>
+                </div>
+            </div>
+
+            <!-- Language Academy -->
+            <div class="dept-card languages" onclick="openModal('languages')">
+                <div class="dept-icon" style="background: linear-gradient(135deg, rgba(0, 204, 102, 0.2), rgba(0, 204, 102, 0.05));">
+                    <div class="dept-icon-text">🗣️</div>
+                </div>
+                <div class="dept-content">
+                    <h3 class="dept-title">Académie des Langues</h3>
+                    <p class="dept-desc">Maîtrisez les Langues Internationales</p>
+                    <ul class="dept-features">
+                        <li>Allemand A1-B2 (Focus Visa)</li>
+                        <li>Anglais Professionnel</li>
+                        <li>Français des Affaires</li>
+                        <li>Arabe des Affaires</li>
+                    </ul>
+                    <button class="btn"><span>En Savoir Plus →</span></button>
+                </div>
+            </div>
+
+            <!-- Kids Tech Lab -->
+            <div class="dept-card kids" onclick="openModal('kids')">
+                <div class="dept-icon" style="background: linear-gradient(135deg, rgba(255, 204, 0, 0.2), rgba(255, 204, 0, 0.05));">
+                    <div class="dept-icon-text">🚀</div>
+                </div>
+                <div class="dept-content">
+                    <h3 class="dept-title">Kids Tech Lab</h3>
+                    <p class="dept-desc">Technologies pour Enfants 8-16 ans</p>
+                    <ul class="dept-features">
+                        <li>Coding pour Enfants (8-12 ans)</li>
+                        <li>Robotique Ados (13-16 ans)</li>
+                        <li>Ateliers Vacances</li>
+                        <li>Clubs Scientifiques</li>
+                    </ul>
+                    <button class="btn"><span>Inscrire →</span></button>
+                </div>
+            </div>
+
+            <!-- Corporate Solutions -->
+            <div class="dept-card corporate" onclick="openModal('corporate')">
+                <div class="dept-icon" style="background: linear-gradient(135deg, rgba(153, 51, 204, 0.2), rgba(153, 51, 204, 0.05));">
+                    <div class="dept-icon-text">🏢</div>
+                </div>
+                <div class="dept-content">
+                    <h3 class="dept-title">Solutions Entreprise</h3>
+                    <p class="dept-desc">Formations Sur Mesure</p>
+                    <ul class="dept-features">
+                        <li>Digital Upskilling</li>
+                        <li>Langues pour Équipes</li>
+                        <li>Consulting Technologique</li>
+                        <li>Recrutement Assisté</li>
+                    </ul>
+                    <button class="btn"><span>Consulter →</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="registration-section">
+        <div class="form-container">
+            <h2 class="section-title">Inscription Rapide</h2>
+            <p class="section-subtitle">Réservez votre place dès aujourd'hui</p>
+
+            <form id="registrationForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>Nom Complet *</label>
+                    <input type="text" id="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Téléphone *</label>
+                    <input type="tel" id="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Département *</label>
+                    <select id="department" required>
+                        <option value="">Choisissez un département</option>
+                        <option value="pqp">PQP Tech Bootcamp</option>
+                        <option value="ausbildung">Ausbildung Allemagne</option>
+                        <option value="languages">Académie des Langues</option>
+                        <option value="kids">Kids Tech Lab</option>
+                        <option value="corporate">Solutions Entreprise</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="message" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;"><span>Envoyer la Demande</span></button>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                <h3 style="color: var(--green); margin-bottom: 1rem;">✓ Inscription Envoyée!</h3>
+                <p>Merci pour votre intérêt. Notre équipe vous contactera sous 24h.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Institut S Tech</h3>
+                <p>Votre partenaire pour une formation d'excellence à Tlemcen.</p>
+                <p>📍 Tlemcen, Algérie</p>
+                <p>📧 contact@institut-s-tech.dz</p>
+                <p>📞 +213 XX XX XX XX XX</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Départements</h3>
+                <a href="#" onclick="openModal('pqp')">PQP Tech Bootcamp</a>
+                <a href="#" onclick="openModal('ausbildung')">Ausbildung Allemagne</a>
+                <a href="#" onclick="openModal('languages')">Académie des Langues</a>
+                <a href="#" onclick="openModal('kids')">Kids Tech Lab</a>
+                <a href="#" onclick="openModal('corporate')">Solutions Entreprise</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <a href="#registration" onclick="scrollToSection('registration')">Inscription</a>
+                <a href="#departments" onclick="scrollToSection('departments')">Programmes</a>
+                <a href="#home" onclick="scrollToSection('home')">Accueil</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Horaires</h3>
+                <p>Lundi - Vendredi: 8h - 18h</p>
+                <p>Samedi: 9h - 16h</p>
+                <p>Dimanche: Fermé</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2024 Institut S Tech. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- PQP Modal -->
+    <div id="pqpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('pqp')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">💻 PQP Tech Bootcamp</h2>
+                <p class="modal-subtitle">Devenez Expert Tech en 3 Mois</p>
+            </div>
+
+            <h3 style="color: var(--orange); margin: 2rem 0 1rem;">Programmes Disponibles</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h4>Intelligence Artificielle & Machine Learning</h4>
+                        <p>Python, TensorFlow, PyTorch, Deep Learning, NLP, Computer Vision</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Durée: 12 semaines • Niveau: Intermédiaire</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h4>Cybersécurité Avancée</h4>
+                        <p>Ethical Hacking, Network Security, Penetration Testing, OSCP Prep</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Durée: 12 semaines • Niveau: Avancé</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h4>Développement Web Full-Stack</h4>
+                        <p>React, Node.js, MongoDB, PostgreSQL, AWS, Docker, Kubernetes</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Durée: 12 semaines • Niveau: Débutant à Avancé</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h4>Robotique & IoT</h4>
+                        <p>Arduino, Raspberry Pi, ROS, Sensors, Automation, Smart Devices</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Durée: 12 semaines • Niveau: Intermédiaire</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--orange); margin: 2rem 0 1rem;">Avantages du Programme</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: rgba(255, 107, 0, 0.1); padding: 1.5rem; border-radius: 10px;">
+                    <h4 style="color: var(--orange); margin-bottom: 0.5rem;">🎓 Instructeurs Experts</h4>
+                    <p>Enseignement par diplômés ESI/ESTIN avec expérience internationale</p>
+                </div>
+                <div style="background: rgba(255, 107, 0, 0.1); padding: 1.5rem; border-radius: 10px;">
+                    <h4 style="color: var(--orange); margin-bottom: 0.5rem;">💼 Portfolio Professionnel</h4>
+                    <p>5+ projets réels pour votre portfolio GitHub</p>
+                </div>
+                <div style="background: rgba(255, 107, 0, 0.1); padding: 1.5rem; border-radius: 10px;">
+                    <h4 style="color: var(--orange); margin-bottom: 0.5rem;">🔒 Garantie Emploi</h4>
+                    <p>Placement garanti ou remboursement intégral</p>
+                </div>
+            </div>
+
+            <div class="pricing">
+                <h3 style="color: var(--orange);">Tarification Flexible</h3>
+                <p style="margin: 1rem 0;">Paiement en plusieurs fois disponible</p>
+                <div class="price-tag">45,000 DA/mois</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">Ou 150,000 DA en une fois (réduction 15%)</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem;" onclick="closeModal('pqp'); scrollToSection('registration');"><span>S'Inscrire Maintenant</span></button>
+        </div>
+    </div>
+
+    <!-- Ausbildung Modal -->
+    <div id="ausbildungModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('ausbildung')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">🇩🇪 Ausbildung Allemagne</h2>
+                <p class="modal-subtitle">Étudiez et Travaillez en Allemagne avec Salaire</p>
+            </div>
+
+            <h3 style="color: var(--blue); margin: 2rem 0 1rem;">Processus Complet de A à Z</h3>
+            <div class="timeline">
+                <div class="timeline-item" style="border-left-color: var(--blue);">
+                    <div class="timeline-number" style="color: var(--blue);">01</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--blue);">Formation Intensive Allemand</h4>
+                        <p>6 mois A1-B1 avec focus visa professionnel et TestDaF</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Cours quotidiens + Immersion culturelle</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--blue);">
+                    <div class="timeline-number" style="color: var(--blue);">02</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--blue);">Matching avec Entreprises Allemandes</h4>
+                        <p>50+ entreprises partenaires dans toute l'Allemagne</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Secteurs: IT, Ingénierie, Santé, Hôtellerie</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--blue);">
+                    <div class="timeline-number" style="color: var(--blue);">03</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--blue);">Assistance Visa & Documents</h4>
+                        <p>Préparation complète du dossier et accompagnement ambassade</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Taux de succès: 95%</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--blue);">
+                    <div class="timeline-number" style="color: var(--blue);">04</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--blue);">Installation & Support en Allemagne</h4>
+                        <p>Logement, compte bancaire, assurance, intégration</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Support continu pendant 2 ans</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--blue); margin: 2rem 0 1rem;">Avantages Financiers</h3>
+            <div class="pricing" style="background: rgba(0, 102, 204, 0.1); border-color: var(--blue);">
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.5rem 0; display: flex; align-items: center;">
+                        <span style="color: var(--blue); font-size: 1.5rem; margin-right: 1rem;">✓</span>
+                        <span>Salaire garanti 800-1200€/mois pendant la formation</span>
+                    </li>
+                    <li style="padding: 0.5rem 0; display: flex; align-items: center;">
+                        <span style="color: var(--blue); font-size: 1.5rem; margin-right: 1rem;">✓</span>
+                        <span>Contrat de travail avant départ</span>
+                    </li>
+                    <li style="padding: 0.5rem 0; display: flex; align-items: center;">
+                        <span style="color: var(--blue); font-size: 1.5rem; margin-right: 1rem;">✓</span>
+                        <span>Aide au logement (300-400€/mois)</span>
+                    </li>
+                    <li style="padding: 0.5rem 0; display: flex; align-items: center;">
+                        <span style="color: var(--blue); font-size: 1.5rem; margin-right: 1rem;">✓</span>
+                        <span>Remboursement 90% en cas d'échec visa</span>
+                    </li>
+                </ul>
+                <div class="price-tag" style="color: var(--blue); margin-top: 2rem;">Programme Complet: 350,000 DA</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">Paiement échelonné possible sur 10 mois</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem; background: var(--blue);" onclick="closeModal('ausbildung'); scrollToSection('registration');"><span>Réserver ma Place</span></button>
+        </div>
+    </div>
+
+    <!-- Languages Modal -->
+    <div id="languagesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('languages')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">🗣️ Académie des Langues</h2>
+                <p class="modal-subtitle">Maîtrisez les Langues pour Votre Avenir International</p>
+            </div>
+
+            <h3 style="color: var(--green); margin: 2rem 0 1rem;">Nos Programmes de Langues</h3>
+            <div class="timeline">
+                <div class="timeline-item" style="border-left-color: var(--green);">
+                    <div class="timeline-number" style="color: var(--green);">DE</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--green);">Allemand (A1 à B2)</h4>
+                        <p>Formation intensive avec préparation TestDaF et Goethe-Zertifikat</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">4-6 mois par niveau • Classes de 8-12 étudiants</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--green);">
+                    <div class="timeline-number" style="color: var(--green);">EN</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--green);">Anglais Professionnel</h4>
+                        <p>Business English, IELTS/TOEFL, Communication professionnelle</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">3-5 mois • Certifications internationales</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--green);">
+                    <div class="timeline-number" style="color: var(--green);">FR</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--green);">Français des Affaires</h4>
+                        <p>Français commercial, correspondance, négociation, DELF Pro</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">3-4 mois • Accent sur le monde des affaires</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--green);">
+                    <div class="timeline-number" style="color: var(--green);">AR</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--green);">Arabe des Affaires</h4>
+                        <p>Arabe commercial pour les pays du Golfe, correspondance professionnelle</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">3 mois • Focus marchés arabes</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--green); margin: 2rem 0 1rem;">Nos Professeurs</h3>
+            <div style="background: rgba(0, 204, 102, 0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <p style="line-height: 1.8;">Enseignants natifs et diplômés avec expérience internationale. Tous nos professeurs sont certifiés et utilisent des méthodes d'enseignement modernes et interactives.</p>
+            </div>
+
+            <div class="pricing" style="background: rgba(0, 204, 102, 0.1); border-color: var(--green);">
+                <h3 style="color: var(--green);">Tarifs Compétitifs</h3>
+                <div class="price-tag" style="color: var(--green);">12,000 DA/mois</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">3 séances par semaine • Matériel pédagogique inclus</p>
+                <p style="margin-top: 0.5rem; color: var(--light-gray);">Réductions pour inscription à 2+ langues</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem; background: var(--green);" onclick="closeModal('languages'); scrollToSection('registration');"><span>Commencer Maintenant</span></button>
+        </div>
+    </div>
+
+    <!-- Kids Modal -->
+    <div id="kidsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('kids')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">🚀 Kids Tech Lab</h2>
+                <p class="modal-subtitle">Initiez Vos Enfants aux Technologies de Demain</p>
+            </div>
+
+            <h3 style="color: var(--yellow); margin: 2rem 0 1rem;">Programmes par Âge</h3>
+            <div class="timeline">
+                <div class="timeline-item" style="border-left-color: var(--yellow);">
+                    <div class="timeline-number" style="color: var(--yellow);">8-10</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--yellow);">Coding Débutant (Scratch)</h4>
+                        <p>Introduction à la programmation avec Scratch, création de jeux et animations</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">1 séance/semaine • Durée: 6 mois</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--yellow);">
+                    <div class="timeline-number" style="color: var(--yellow);">11-13</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--yellow);">Développement Web Junior (HTML/CSS)</h4>
+                        <p>Création de sites web, design, projets personnalisés</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">2 séances/semaine • Durée: 4 mois</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--yellow);">
+                    <div class="timeline-number" style="color: var(--yellow);">13-16</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--yellow);">Robotique & Arduino</h4>
+                        <p>Construction de robots, programmation Arduino, capteurs et moteurs</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">2 séances/semaine • Durée: 5 mois</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--yellow);">
+                    <div class="timeline-number" style="color: var(--yellow);">ALL</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--yellow);">Ateliers Vacances</h4>
+                        <p>Camps d'été et stages intensifs: Minecraft Coding, Impression 3D, Drones</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">1-2 semaines • Programmes spéciaux</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--yellow); margin: 2rem 0 1rem;">Pourquoi Kids Tech Lab?</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: rgba(255, 204, 0, 0.1); padding: 1.5rem; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎮</div>
+                    <h4 style="color: var(--yellow);">Apprentissage Ludique</h4>
+                </div>
+                <div style="background: rgba(255, 204, 0, 0.1); padding: 1.5rem; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">👥</div>
+                    <h4 style="color: var(--yellow);">Petits Groupes</h4>
+                </div>
+                <div style="background: rgba(255, 204, 0, 0.1); padding: 1.5rem; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏆</div>
+                    <h4 style="color: var(--yellow);">Certificats</h4>
+                </div>
+            </div>
+
+            <div class="pricing" style="background: rgba(255, 204, 0, 0.1); border-color: var(--yellow);">
+                <h3 style="color: var(--yellow);">Tarifs Famille</h3>
+                <div class="price-tag" style="color: var(--yellow);">8,000 DA/mois</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">-20% pour le 2ème enfant • Kit robotique inclus</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem; background: var(--yellow); color: var(--black);" onclick="closeModal('kids'); scrollToSection('registration');"><span>Inscrire Mon Enfant</span></button>
+        </div>
+    </div>
+
+    <!-- Corporate Modal -->
+    <div id="corporateModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('corporate')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">🏢 Solutions Entreprise</h2>
+                <p class="modal-subtitle">Formations Sur Mesure pour Votre Entreprise</p>
+            </div>
+
+            <h3 style="color: var(--purple); margin: 2rem 0 1rem;">Nos Services B2B</h3>
+            <div class="timeline">
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">01</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Digital Upskilling</h4>
+                        <p>Formation de vos équipes aux technologies émergentes: AI, Cloud, DevOps</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Programmes personnalisés • Sur site ou en ligne</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">02</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Formations Linguistiques</h4>
+                        <p>Cours d'allemand, anglais, français pour vos employés</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Sessions en entreprise • Horaires flexibles</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">03</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Consulting Technologique</h4>
+                        <p>Audit IT, transformation digitale, stratégie technologique</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Accompagnement complet • ROI garanti</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">04</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Recrutement Assisté</h4>
+                        <p>Accès à notre réseau de talents formés et certifiés</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Matching précis • Garantie 6 mois</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--purple); margin: 2rem 0 1rem;">Nos Clients</h3>
+            <div style="background: rgba(153, 51, 204, 0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <p style="line-height: 1.8;">Nous travaillons avec des PME et grandes entreprises dans divers secteurs: IT, industrie, services, santé. Plus de 30 entreprises nous font confiance pour former leurs équipes.</p>
+            </div>
+
+            <div class="pricing" style="background: rgba(153, 51, 204, 0.1); border-color: var(--purple);">
+                <h3 style="color: var(--purple);">Tarification sur Mesure</h3>
+                <p style="margin: 1rem 0;">Devis personnalisé selon vos besoins</p>
+                <div class="price-tag" style="color: var(--purple);">À partir de 200,000 DA</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">Package groupe • Paiement échelonné possible</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem; background: var(--purple);" onclick="closeModal('corporate'); scrollToSection('registration');"><span>Demander un Devis</span></button>
+        </div>
+    </div>
+
+    <script>
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+
+            // Nav scroll effect
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId + 'Modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId + 'Modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const
