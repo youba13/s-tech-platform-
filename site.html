@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut S Tech - Tlemcen | Formation Tech, Langues, Allemagne & Enfants</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav id="mainNav">
+        <div class="nav-container">
+            <div class="logo" onclick="scrollToSection('home')">Institut S Tech</div>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="scrollToSection('home')">Accueil</a></li>
+                <li><a href="#departments" onclick="scrollToSection('departments')">Départements</a></li>
+                <li><a href="#registration" onclick="scrollToSection('registration')">Inscription</a></li>
+                <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#home" onclick="scrollToSection('home'); toggleMobileMenu()">Accueil</a>
+        <a href="#departments" onclick="scrollToSection('departments'); toggleMobileMenu()">Départements</a>
+        <a href="#registration" onclick="scrollToSection('registration'); toggleMobileMenu()">Inscription</a>
+        <a href="#contact" onclick="scrollToSection('contact'); toggleMobileMenu()">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="floating">Votre Avenir Commence Ici à Tlemcen</h1>
+                <h2>Formation Technologie • Langues • Allemagne • Enfants</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Étudiants Formés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">90%</div>
+                        <div class="stat-label">Taux de Réussite</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Entreprises Partenaires</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop" alt="Professionnelle avec ordinateur portable" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section id="departments" class="departments">
+        <h2 class="section-title">Nos Départements</h2>
+        <p class="section-subtitle">Choisissez votre parcours vers le succès</p>
+
+        <div class="dept-grid">
+            <!-- PQP Tech Bootcamp -->
+            <div class="dept-card pqp" onclick="openModal('pqp')">
+                <div style="background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 107, 0, 0.05));">
+                    <img class="img" src="./images/informatique/6518027.jpg">
+                </div>
+                <div class="dept-content">
+                    <h3 class="dept-title">PQP Tech Bootcamp</h3>
+                    <p class="dept-desc">Devenez Expert Tech en 3 Mois</p>
+                    <ul class="dept-features">
+                        <li>Intelligence Artificielle & ML</li>
+                        <li>Cybersécurité Avancée</li>
+                        <li>Développement Web Full-Stack</li>
+                        <li>Robotique & IoT</li>
+                    </ul>
+                    <button class="btn"><span>Explorer →</span></button>
+                </div>
+            </div>
+
+            <!-- Ausbildung Germany -->
+            <div class="dept-card ausbildung" onclick="openModal('ausbildung')">
+                <div style="background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 107, 0, 0.05));">
+                    <img class="img" src="./images/5.jpg">
+                </div>
+                <div class="dept-content">
+                    <h3 class="dept-title">Ausbildung Allemagne</h3>
+                    <p class="dept-desc">Étudiez et Travaillez en Allemagne</p>
+                    <ul class="dept-features">
+                        <li>Salaire 800-1200€/mois</li>
+                        <li>Visa Garanti à 95%</li>
+                        <li>Logement Assisté</li>
+                        <li>Remboursement 90% si échec</li>
+                    </ul>
+                    <button class="btn"><span>Découvrir →</span></button>
+                </div>
+            </div>
+
+            <!-- Language Academy -->
+            <div class="dept-card languages" onclick="openModal('languages')">
+                <div style="background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 107, 0, 0.05));">
+                    <img class="img" src="./images/LEARN YOUR FAVOURITE LANGUAGE.jpg">
+                </div>
+                <div class="dept-content">
+                    <h3 class="dept-title">Académie des Langues</h3>
+                    <p class="dept-desc">Maîtrisez les Langues Internationales</p>
+                    <ul class="dept-features">
+                        <li>Allemand A1-B2 (Focus Visa)</li>
+                        <li>Anglais Professionnel</li>
+                        <li>Français des Affaires</li>
+                        <li>Arabe des Affaires</li>
+                    </ul>
+                    <button class="btn"><span>En Savoir Plus →</span></button>
+                </div>
+            </div>
+
+            <!-- Kids Tech Lab -->
+            <div class="dept-card kids" onclick="openModal('kids')">
+                <div class="dept-icon" style="background: linear-gradient(135deg, rgba(255, 204, 0, 0.2), rgba(255, 204, 0, 0.05));">
+                    <div class="dept-icon-text">🚀</div>
+                </div>
+                <div class="dept-content">
+                    <h3 class="dept-title">Kids Tech Lab</h3>
+                    <p class="dept-desc">Technologies pour Enfants 8-16 ans</p>
+                    <ul class="dept-features">
+                        <li>Coding pour Enfants (8-12 ans)</li>
+                        <li>Robotique Ados (13-16 ans)</li>
+                        <li>Ateliers Vacances</li>
+                        <li>Clubs Scientifiques</li>
+                    </ul>
+                    <button class="btn"><span>Inscrire →</span></button>
+                </div>
+            </div>
+
+            <!-- Corporate Solutions -->
+            <div class="dept-card corporate" onclick="openModal('corporate')">
+               <div style="background: linear-gradient(135deg, rgba(255, 107, 0, 0.2), rgba(255, 107, 0, 0.05));">
+                    <img class="img" src="./images/startup.png">
+                </div>
+                <div class="dept-content">
+                    <h3 class="dept-title">Solutions Entreprise</h3>
+                    <p class="dept-desc">Formations Sur Mesure</p>
+                    <ul class="dept-features">
+                        <li>Digital Upskilling</li>
+                        <li>Langues pour Équipes</li>
+                        <li>Consulting Technologique</li>
+                        <li>Recrutement Assisté</li>
+                    </ul>
+                    <button class="btn"><span>Consulter →</span></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="registration-section">
+        <div class="form-container">
+            <h2 class="section-title">Inscription Rapide</h2>
+            <p class="section-subtitle">Réservez votre place dès aujourd'hui</p>
+
+            <form id="registrationForm" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label>Nom Complet *</label>
+                    <input type="text" id="fullName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Téléphone *</label>
+                    <input type="tel" id="phone" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Département *</label>
+                    <select id="department" required>
+                        <option value="">Choisissez un département</option>
+                        <option value="pqp">PQP Tech Bootcamp</option>
+                        <option value="ausbildung">Ausbildung Allemagne</option>
+                        <option value="languages">Académie des Langues</option>
+                        <option value="kids">Kids Tech Lab</option>
+                        <option value="corporate">Solutions Entreprise</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="message" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%;"><span>Envoyer la Demande</span></button>
+            </form>
+
+            <div class="success-message" id="successMessage">
+                <h3 style="color: var(--green); margin-bottom: 1rem;">✓ Inscription Envoyée!</h3>
+                <p>Merci pour votre intérêt. Notre équipe vous contactera sous 24h.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Institut S Tech</h3>
+                <p>Votre partenaire pour une formation d'excellence à Tlemcen.</p>
+                <p>📍 Tlemcen, Algérie</p>
+                <p>📧 contact@institut-s-tech.dz</p>
+                <p>📞 +213 XX XX XX XX XX</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Départements</h3>
+                <a href="#" onclick="openModal('pqp')">PQP Tech Bootcamp</a>
+                <a href="#" onclick="openModal('ausbildung')">Ausbildung Allemagne</a>
+                <a href="#" onclick="openModal('languages')">Académie des Langues</a>
+                <a href="#" onclick="openModal('kids')">Kids Tech Lab</a>
+                <a href="#" onclick="openModal('corporate')">Solutions Entreprise</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <a href="#registration" onclick="scrollToSection('registration')">Inscription</a>
+                <a href="#departments" onclick="scrollToSection('departments')">Programmes</a>
+                <a href="#home" onclick="scrollToSection('home')">Accueil</a>
+            </div>
+
+            <div class="footer-section">
+                <h3>Horaires</h3>
+                <p>Lundi - Vendredi: 8h - 18h</p>
+                <p>Samedi: 9h - 16h</p>
+                <p>Dimanche: Fermé</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2024 Institut S Tech. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <!-- PQP Modal -->
+    <div id="pqpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('pqp')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">💻 PQP Tech Bootcamp</h2>
+                <p class="modal-subtitle">Devenez Expert Tech en 3 Mois</p>
+            </div>
+
+            <h3 style="color: var(--orange); margin: 2rem 0 1rem;">Programmes Disponibles</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">01</div>
+                    <div class="timeline-content">
+                        <h4>Intelligence Artificielle & Machine Learning</h4>
+                        <p>Python, TensorFlow, PyTorch, Deep Learning, NLP, Computer Vision</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Durée: 12 semaines • Niveau: Intermédiaire</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">02</div>
+                    <div class="timeline-content">
+                        <h4>Cybersécurité Avancée</h4>
+                        <p>Ethical Hacking, Network Security, Penetration Testing, OSCP Prep</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Durée: 12 semaines • Niveau: Avancé</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">03</div>
+                    <div class="timeline-content">
+                        <h4>Développement Web Full-Stack</h4>
+                        <p>React, Node.js, MongoDB, PostgreSQL, AWS, Docker, Kubernetes</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Durée: 12 semaines • Niveau: Débutant à Avancé</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">04</div>
+                    <div class="timeline-content">
+                        <h4>Robotique & IoT</h4>
+                        <p>Arduino, Raspberry Pi, ROS, Sensors, Automation, Smart Devices</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Durée: 12 semaines • Niveau: Intermédiaire</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--orange); margin: 2rem 0 1rem;">Avantages du Programme</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: rgba(255, 107, 0, 0.1); padding: 1.5rem; border-radius: 10px;">
+                    <h4 style="color: var(--orange); margin-bottom: 0.5rem;">🎓 Instructeurs Experts</h4>
+                    <p>Enseignement par diplômés ESI/ESTIN avec expérience internationale</p>
+                </div>
+                <div style="background: rgba(255, 107, 0, 0.1); padding: 1.5rem; border-radius: 10px;">
+                    <h4 style="color: var(--orange); margin-bottom: 0.5rem;">💼 Portfolio Professionnel</h4>
+                    <p>5+ projets réels pour votre portfolio GitHub</p>
+                </div>
+                <div style="background: rgba(255, 107, 0, 0.1); padding: 1.5rem; border-radius: 10px;">
+                    <h4 style="color: var(--orange); margin-bottom: 0.5rem;">🔒 Garantie Emploi</h4>
+                    <p>Placement garanti ou remboursement intégral</p>
+                </div>
+            </div>
+
+            <div class="pricing">
+                <h3 style="color: var(--orange);">Tarification Flexible</h3>
+                <p style="margin: 1rem 0;">Paiement en plusieurs fois disponible</p>
+                <div class="price-tag">45,000 DA/mois</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">Ou 150,000 DA en une fois (réduction 15%)</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem;" onclick="closeModal('pqp'); scrollToSection('registration');"><span>S'Inscrire Maintenant</span></button>
+        </div>
+    </div>
+
+    <!-- Ausbildung Modal -->
+    <div id="ausbildungModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('ausbildung')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">🇩🇪 Ausbildung Allemagne</h2>
+                <p class="modal-subtitle">Étudiez et Travaillez en Allemagne avec Salaire</p>
+            </div>
+
+            <h3 style="color: var(--blue); margin: 2rem 0 1rem;">Processus Complet de A à Z</h3>
+            <div class="timeline">
+                <div class="timeline-item" style="border-left-color: var(--blue);">
+                    <div class="timeline-number" style="color: var(--blue);">01</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--blue);">Formation Intensive Allemand</h4>
+                        <p>6 mois A1-B1 avec focus visa professionnel et TestDaF</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Cours quotidiens + Immersion culturelle</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--blue);">
+                    <div class="timeline-number" style="color: var(--blue);">02</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--blue);">Matching avec Entreprises Allemandes</h4>
+                        <p>50+ entreprises partenaires dans toute l'Allemagne</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Secteurs: IT, Ingénierie, Santé, Hôtellerie</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--blue);">
+                    <div class="timeline-number" style="color: var(--blue);">03</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--blue);">Assistance Visa & Documents</h4>
+                        <p>Préparation complète du dossier et accompagnement ambassade</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Taux de succès: 95%</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--blue);">
+                    <div class="timeline-number" style="color: var(--blue);">04</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--blue);">Installation & Support en Allemagne</h4>
+                        <p>Logement, compte bancaire, assurance, intégration</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Support continu pendant 2 ans</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--blue); margin: 2rem 0 1rem;">Avantages Financiers</h3>
+            <div class="pricing" style="background: rgba(0, 102, 204, 0.1); border-color: var(--blue);">
+                <ul style="list-style: none; padding: 0;">
+                    <li style="padding: 0.5rem 0; display: flex; align-items: center;">
+                        <span style="color: var(--blue); font-size: 1.5rem; margin-right: 1rem;">✓</span>
+                        <span>Salaire garanti 800-1200€/mois pendant la formation</span>
+                    </li>
+                    <li style="padding: 0.5rem 0; display: flex; align-items: center;">
+                        <span style="color: var(--blue); font-size: 1.5rem; margin-right: 1rem;">✓</span>
+                        <span>Contrat de travail avant départ</span>
+                    </li>
+                    <li style="padding: 0.5rem 0; display: flex; align-items: center;">
+                        <span style="color: var(--blue); font-size: 1.5rem; margin-right: 1rem;">✓</span>
+                        <span>Aide au logement (300-400€/mois)</span>
+                    </li>
+                    <li style="padding: 0.5rem 0; display: flex; align-items: center;">
+                        <span style="color: var(--blue); font-size: 1.5rem; margin-right: 1rem;">✓</span>
+                        <span>Remboursement 90% en cas d'échec visa</span>
+                    </li>
+                </ul>
+                <div class="price-tag" style="color: var(--blue); margin-top: 2rem;">Programme Complet: 350,000 DA</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">Paiement échelonné possible sur 10 mois</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem; background: var(--blue);" onclick="closeModal('ausbildung'); scrollToSection('registration');"><span>Réserver ma Place</span></button>
+        </div>
+    </div>
+
+    <!-- Languages Modal -->
+    <div id="languagesModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('languages')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">🗣️ Académie des Langues</h2>
+                <p class="modal-subtitle">Maîtrisez les Langues pour Votre Avenir International</p>
+            </div>
+
+            <h3 style="color: var(--green); margin: 2rem 0 1rem;">Nos Programmes de Langues</h3>
+            <div class="timeline">
+                <div class="timeline-item" style="border-left-color: var(--green);">
+                    <div class="timeline-number" style="color: var(--green);">DE</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--green);">Allemand (A1 à B2)</h4>
+                        <p>Formation intensive avec préparation TestDaF et Goethe-Zertifikat</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">4-6 mois par niveau • Classes de 8-12 étudiants</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--green);">
+                    <div class="timeline-number" style="color: var(--green);">EN</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--green);">Anglais Professionnel</h4>
+                        <p>Business English, IELTS/TOEFL, Communication professionnelle</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">3-5 mois • Certifications internationales</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--green);">
+                    <div class="timeline-number" style="color: var(--green);">FR</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--green);">Français des Affaires</h4>
+                        <p>Français commercial, correspondance, négociation, DELF Pro</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">3-4 mois • Accent sur le monde des affaires</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--green);">
+                    <div class="timeline-number" style="color: var(--green);">AR</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--green);">Arabe des Affaires</h4>
+                        <p>Arabe commercial pour les pays du Golfe, correspondance professionnelle</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">3 mois • Focus marchés arabes</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--green); margin: 2rem 0 1rem;">Nos Professeurs</h3>
+            <div style="background: rgba(0, 204, 102, 0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <p style="line-height: 1.8;">Enseignants natifs et diplômés avec expérience internationale. Tous nos professeurs sont certifiés et utilisent des méthodes d'enseignement modernes et interactives.</p>
+            </div>
+
+            <div class="pricing" style="background: rgba(0, 204, 102, 0.1); border-color: var(--green);">
+                <h3 style="color: var(--green);">Tarifs Compétitifs</h3>
+                <div class="price-tag" style="color: var(--green);">12,000 DA/mois</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">3 séances par semaine • Matériel pédagogique inclus</p>
+                <p style="margin-top: 0.5rem; color: var(--light-gray);">Réductions pour inscription à 2+ langues</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem; background: var(--green);" onclick="closeModal('languages'); scrollToSection('registration');"><span>Commencer Maintenant</span></button>
+        </div>
+    </div>
+
+    <!-- Kids Modal -->
+    <div id="kidsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('kids')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">🚀 Kids Tech Lab</h2>
+                <p class="modal-subtitle">Initiez Vos Enfants aux Technologies de Demain</p>
+            </div>
+
+            <h3 style="color: var(--yellow); margin: 2rem 0 1rem;">Programmes par Âge</h3>
+            <div class="timeline">
+                <div class="timeline-item" style="border-left-color: var(--yellow);">
+                    <div class="timeline-number" style="color: var(--yellow);">8-10</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--yellow);">Coding Débutant (Scratch)</h4>
+                        <p>Introduction à la programmation avec Scratch, création de jeux et animations</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">1 séance/semaine • Durée: 6 mois</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--yellow);">
+                    <div class="timeline-number" style="color: var(--yellow);">11-13</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--yellow);">Développement Web Junior (HTML/CSS)</h4>
+                        <p>Création de sites web, design, projets personnalisés</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">2 séances/semaine • Durée: 5 mois</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--yellow);">
+                    <div class="timeline-number" style="color: var(--yellow);">ALL</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--yellow);">Ateliers Vacances</h4>
+                        <p>Camps d'été et stages intensifs: Minecraft Coding, Impression 3D, Drones</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">1-2 semaines • Programmes spéciaux</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--yellow); margin: 2rem 0 1rem;">Pourquoi Kids Tech Lab?</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem;">
+                <div style="background: rgba(255, 204, 0, 0.1); padding: 1.5rem; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🎮</div>
+                    <h4 style="color: var(--yellow);">Apprentissage Ludique</h4>
+                </div>
+                <div style="background: rgba(255, 204, 0, 0.1); padding: 1.5rem; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">👥</div>
+                    <h4 style="color: var(--yellow);">Petits Groupes</h4>
+                </div>
+                <div style="background: rgba(255, 204, 0, 0.1); padding: 1.5rem; border-radius: 10px; text-align: center;">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏆</div>
+                    <h4 style="color: var(--yellow);">Certificats</h4>
+                </div>
+            </div>
+
+            <div class="pricing" style="background: rgba(255, 204, 0, 0.1); border-color: var(--yellow);">
+                <h3 style="color: var(--yellow);">Tarifs Famille</h3>
+                <div class="price-tag" style="color: var(--yellow);">8,000 DA/mois</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">-20% pour le 2ème enfant • Kit robotique inclus</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem; background: var(--yellow); color: var(--black);" onclick="closeModal('kids'); scrollToSection('registration');"><span>Inscrire Mon Enfant</span></button>
+        </div>
+    </div>
+
+    <!-- Corporate Modal -->
+    <div id="corporateModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('corporate')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">🏢 Solutions Entreprise</h2>
+                <p class="modal-subtitle">Formations Sur Mesure pour Votre Entreprise</p>
+            </div>
+
+            <h3 style="color: var(--purple); margin: 2rem 0 1rem;">Nos Services B2B</h3>
+            <div class="timeline">
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">01</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Digital Upskilling</h4>
+                        <p>Formation de vos équipes aux technologies émergentes: AI, Cloud, DevOps</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Programmes personnalisés • Sur site ou en ligne</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">02</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Formations Linguistiques</h4>
+                        <p>Cours d'allemand, anglais, français pour vos employés</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Sessions en entreprise • Horaires flexibles</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">03</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Consulting Technologique</h4>
+                        <p>Audit IT, transformation digitale, stratégie technologique</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Accompagnement complet • ROI garanti</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">04</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Recrutement Assisté</h4>
+                        <p>Accès à notre réseau de talents formés et certifiés</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Matching précis • Garantie 6 mois</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--purple); margin: 2rem 0 1rem;">Nos Clients</h3>
+            <div style="background: rgba(153, 51, 204, 0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <p style="line-height: 1.8;">Nous travaillons avec des PME et grandes entreprises dans divers secteurs: IT, industrie, services, santé. Plus de 30 entreprises nous font confiance pour former leurs équipes.</p>
+            </div>
+
+            <div class="pricing" style="background: rgba(153, 51, 204, 0.1); border-color: var(--purple);">
+                <h3 style="color: var(--purple);">Tarification sur Mesure</h3>
+                <p style="margin: 1rem 0;">Devis personnalisé selon vos besoins</p>
+                <div class="price-tag" style="color: var(--purple);">À partir de 200,000 DA</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">Package groupe • Paiement échelonné possible</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem; background: var(--purple);" onclick="closeModal('corporate'); scrollToSection('registration');"><span>Demander un Devis</span></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>ances/semaine • Durée: 4 mois</p>
+                    </div>
+                </div>
+               
+
+    <!-- Corporate Modal -->
+    <div id="corporateModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('corporate')">×</span>
+            <div class="modal-header">
+                <h2 class="modal-title">🏢 Solutions Entreprise</h2>
+                <p class="modal-subtitle">Formations Sur Mesure pour Votre Entreprise</p>
+            </div>
+
+            <h3 style="color: var(--purple); margin: 2rem 0 1rem;">Nos Services B2B</h3>
+            <div class="timeline">
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">01</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Digital Upskilling</h4>
+                        <p>Formation de vos équipes aux technologies émergentes: AI, Cloud, DevOps</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Programmes personnalisés • Sur site ou en ligne</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">02</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Formations Linguistiques</h4>
+                        <p>Cours d'allemand, anglais, français pour vos employés</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Sessions en entreprise • Horaires flexibles</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">03</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Consulting Technologique</h4>
+                        <p>Audit IT, transformation digitale, stratégie technologique</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Accompagnement complet • ROI garanti</p>
+                    </div>
+                </div>
+                <div class="timeline-item" style="border-left-color: var(--purple);">
+                    <div class="timeline-number" style="color: var(--purple);">04</div>
+                    <div class="timeline-content">
+                        <h4 style="color: var(--purple);">Recrutement Assisté</h4>
+                        <p>Accès à notre réseau de talents formés et certifiés</p>
+                        <p style="color: var(--light-gray); margin-top: 0.5rem;">Matching précis • Garantie 6 mois</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="color: var(--purple); margin: 2rem 0 1rem;">Nos Clients</h3>
+            <div style="background: rgba(153, 51, 204, 0.1); padding: 2rem; border-radius: 15px; margin-bottom: 2rem;">
+                <p style="line-height: 1.8;">Nous travaillons avec des PME et grandes entreprises dans divers secteurs: IT, industrie, services, santé. Plus de 30 entreprises nous font confiance pour former leurs équipes.</p>
+            </div>
+
+            <div class="pricing" style="background: rgba(153, 51, 204, 0.1); border-color: var(--purple);">
+                <h3 style="color: var(--purple);">Tarification sur Mesure</h3>
+                <p style="margin: 1rem 0;">Devis personnalisé selon vos besoins</p>
+                <div class="price-tag" style="color: var(--purple);">À partir de 200,000 DA</div>
+                <p style="margin-top: 1rem; color: var(--light-gray);">Package groupe • Paiement échelonné possible</p>
+            </div>
+
+            <button class="btn" style="margin-top: 2rem; background: var(--purple);" onclick="closeModal('corporate'); scrollToSection('registration');"><span>Demander un Devis</span></button>
+        </div>
+         <script>
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+
+            // Nav scroll effect
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Mobile menu
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId + 'Modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId + 'Modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+</script>
+    </div>
+    
